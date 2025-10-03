@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta para mi Vida</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: url('mountain.jpg') center/cover no-repeat fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: -1;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(6px);
+      border-radius: 20px;
+      margin-top: 3rem;
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    h1 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    /* Flores cayendo con brillo */
+    .flower {
+      position: fixed;
+      top: -50px;
+      font-size: 1.5rem;
+      animation: fall linear infinite, sparkle 1.5s infinite alternate;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg);}
+      100% { transform: translateY(110vh) rotate(360deg);}
+    }
+    @keyframes sparkle {
+      0% { opacity: 0.6; text-shadow: none; }
+      50% { opacity: 1; text-shadow: 0 0 8px #fff, 0 0 12px #ff9, 0 0 16px #f0f;}
+      100% { opacity: 0.6; text-shadow: none; }
+    }
+  </style>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q32Y35V104'); // <-- tu Measurement ID real
+  </script>
+</head>
+<body onclick="playMusic()">
+  <div class="overlay"></div>
+
+  <!-- Flores multicolores -->
+  <script>
+    const flowers = ['🌸','🌹','🌺','🌻','🌼','🌷','💐'];
+    for (let i=0; i<30; i++) {
+      const f = document.createElement('div');
+      f.className = 'flower';
+      f.textContent = flowers[Math.floor(Math.random()*flowers.length)];
+      f.style.left = Math.random()*100 + 'vw';
+      f.style.animationDuration = (5 + Math.random()*5) + 's';
+      f.style.fontSize = (1 + Math.random()*1.5) + 'rem';
+      f.style.animationDelay = (Math.random()*5) + 's';
+      document.body.appendChild(f);
+    }
+  </script>
+
+  <!-- Música -->
+  <audio id="bg-music" src="bg-music.mp3" preload="none"></audio>
+
+  <div class="container">
+    <h1>Para mi Vida — Con todo mi amor</h1>
+
+    <p>Mi vida,</p>
+    <p>Amor mio, mio mio solamente mio, pechochita magica de los ojitos deliciosos que saben a VIDA saben  a PASION, saben a ILUSION, saben a AMOR INFINITO... quiero recordarte algo que es imposible arrancar de mi corazon: lo mucho que amo cantar contigo, lo mucho que necesito escuchar tu voz. Pero sobre todo LO MUCHO QUE AMO ESCUCHARTE cantando o sin cantar... Esa voz tuya no es solo medicina para mi alma, es el secreto divino que calma los misterios mas incomprensibles del corazon humano. Es como si cada nota tuya tuviera el poder de sanar heridas invisibles, de traerle sentido al silencio y de encender de luz los rincones mas oscuros de este ser mumratico (MUMRA 😋)</p>
+    <p>Te extrano demasiado mi amor, te extrano cantando para mi y dandome esos conciertos maravillosos en la salita, en tu cuarto o en la hamaca o donde te sientas mas a gusto para cantar mi vida... te extrano en cada melodia, y sobre todo extrano demasiado esos ojitos de miel que son mi refugio, mis ventanas a la eternidad. Cuando pienso en ellos siento que me pierdo en un universo donde nada duele y todo florece.</p>
+    <p>Recuerdo como si fuera ayer la primera vez que me cantaste. Yo esperaba algo comun, algo que todos hacemos, como yo, que cuando intento cantar ladro como perro desafinado 😋. Pero tu mi vida, tu... la primera vez que escuche tu voz fue un milagro. Me enamore de inmediato, pero la primera vez que me cantaste, amor mio… WOW. Fue como si el universo mismo se detuviera a escucharte. Se me eriza la piel solo de recordarlo, porque ese instante no fue solo musica: fue magia, fue fuego, fue el cielo entero cayendo dentro de mi pecho.</p>
+    <p>Desde ese momento tu voz quedo grabada en lo mas profundo de mi, como una promesa eterna de amor. No existe cancion en este mundo que se compare a lo que tu me regalas cuando me cantas, porque eres todo lo que amo, todo lo que deseo, todo lo que necesito para vivir... Por que llego a mi vida, el amor de mi vida yo se lo pedi al de arriba, pero contigo se le fue la mano y QUE BUENA SUERTE LA MIA!! GANE SIN JUGAR LA LOTERIAAA, La falta que me hacias CONTIGO NAVIDAD LLEGO TEMPRANO... SI pienso que vienes, tiemblo como un flan, para hacer contigo tengo ya mil plans, pedacito mio mi cafe con pan, soy el presidente de tu club de fans, contigo ya no hay martes 13, prepara ese cachetito delicioso pa comermelo y es que lo bueno toma tiempo a veces, yo tuve que esperarte 27 anos en este ano... Te amo demasiado mi vida...</p>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    let hasPlayed = false;
+    function playMusic(){
+      if(!hasPlayed){
+        audio.play();
+        hasPlayed = true;
+      }
+    }
+  </script>
+</body>
+</html>
